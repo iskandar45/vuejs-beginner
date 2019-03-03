@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vue Js Tutorial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <h1>Computed Properties</h1>
+  
+  <div id="app">
+    <p>Angka 1 : {{ int1 }}</p>
+    <p>Angka 2 : {{ int2 }}</p>
+    <p>Result Angka 1 + Angka 2 is {{ sum }}</p>
+  </div>
+
+  <!-- development version, include helpful console warnings -->
+  <script src="../vendor/vue.js"></script>
+  <!-- <script src="../assets/js/app.js"></script> -->
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+        message: 'Hello World',
+        int1: 1,
+        int2: 2
+      },
+      computed: {
+        sum: function() {
+          return this.int1 + this.int2 
+        }
+      }
+    })
+  </script>
+</body>
+</html>

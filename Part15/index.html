@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vue Js Tutorial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <h1>Data Type - Object Array</h1>
+  
+  <div id="app">
+    <ul>
+      <li v-for="vehicle in vehicles">
+        Type: {{ vehicle.type }},
+        Brand: {{ vehicle.brand }},
+        Color: {{ vehicle.color }}
+      </li>
+    </ul>
+    <br>
+    <ul>
+      <li v-for="value in object">
+        {{ value }}
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- development version, include helpful console warnings -->
+  <script src="../vendor/vue.js"></script>
+  <!-- <script src="../assets/js/app.js"></script> -->
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+        vehicles: [
+          {type: 'Car', brand: 'Toyota', color: 'Metallic Silver'},
+          {type: 'Motorcycle', brand: 'Honda', color: 'Red'},
+          {type: 'Bike', brand: 'BMX', color: 'Black'},
+        ],
+        object: {
+          firstname: 'John',
+          lasttname: 'Doe',
+          age: 30
+        }
+      }
+    })
+  </script>
+</body>
+</html>

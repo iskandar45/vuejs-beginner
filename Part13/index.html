@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vue Js Tutorial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <h1>Directive v-on for key modifier</h1>
+  
+  <div id="app">
+    <label>Press Enter Key</label>
+    <input type="text" v-on:keyup.enter="message = 'You Pressing Enter'">
+
+    <br>
+
+    <label>Press Any Key</label>
+    <input type="text"
+          @keyup.esc="escKey"
+          @keyup.space="spaceKey"
+          @keyup.up="upKey"
+          @keyup.down="downKey"
+          @keyup.65="aKey" >
+    <br>
+    {{ message }}
+  </div>
+
+  <!-- development version, include helpful console warnings -->
+  <script src="../vendor/vue.js"></script>
+  <!-- <script src="../assets/js/app.js"></script> -->
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+        message: ''
+
+      }, 
+      methods: {
+        escKey: function () {
+          this.message = 'you pressing esc key'
+        },
+        spaceKey: function () {
+          this.message = 'you pressing space key'
+        },
+        upKey: function () {
+          this.message = 'you pressing up key'
+        },
+        downKey: function () {
+          this.message = 'you pressing down key'
+        },
+        aKey: function () {
+          this.message = "you pressing 'a' key"
+        },
+
+        }   
+    })
+  </script>
+</body>
+</html>

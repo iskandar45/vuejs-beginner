@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vue Js Tutorial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <h1>Directive v-model in select dropdown</h1>
+  
+  <div id="app">
+    Choice yout favorite programming language:
+    <select v-model="select" multiple>
+      <option value="" disabled>Choice Programming Language</option>
+      <option value="javascript">Javascript</option>
+      <option value="java">Java</option>
+      <option value="C#">C#</option>
+    </select>
+    <br>
+    Your Favorite Programming Language is: {{ select }}
+    <ul>
+      <li v-for="data in select">{{ data }}</li>
+    </ul>
+  </div>
+
+  <!-- development version, include helpful console warnings -->
+  <script src="../vendor/vue.js"></script>
+  <!-- <script src="../assets/js/app.js"></script> -->
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+        message: '',
+        select: []
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vue Js Tutorial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <h1>Data Type - Array</h1>
+  
+  <div id="app">
+    <ul>
+      <li>{{ vehicles[2] }}</li>
+    </ul>
+    <br>
+    <ul>
+      <li v-for="vehicle in vehicles">{{ vehicle }}</li>
+    </ul>
+    <br>
+    <label>Add Vehicles</label><br>
+    <input type="text" v-model="content">
+    <button v-on:click="addVehicles">Add</button>
+    <br>
+
+    <ul>
+      <li v-for="(vehicle, index) in vehicles">
+        <button @click="removeCehicles(index)">x</button>
+        {{ vehicle }}
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- development version, include helpful console warnings -->
+  <script src="../vendor/vue.js"></script>
+  <!-- <script src="../assets/js/app.js"></script> -->
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+        content: '',
+        vehicles: [
+          'car',
+          'motorcycle',
+          'bike'
+        ]
+      },
+      methods: {
+        addVehicles: function() {
+          this.vehicles.push(this.content)
+          this.content = ''
+        },
+        removeCehicles: function(index) {
+          this.vehicles.splice(index, 1);
+        }
+      }
+    })
+  </script>
+</body>
+</html>

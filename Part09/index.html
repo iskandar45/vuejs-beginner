@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vue Js Tutorial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <h1>Directive v-model in checkbox</h1>
+  
+  <div id="app">
+    <label for="">Watching Movie</label>
+    <input type="checkbox" value="watching-movie" v-model="checkbox">
+    <br>
+    <label for="">Travelling</label>
+    <input type="checkbox" value="Travelling" v-model="checkbox">
+    <br>
+    <label for="">Reading</label>
+    <input type="checkbox" value="Reading" v-model="checkbox">
+    <br>
+    My hobbies are: {{ checkbox }}
+    <ul>
+      <li v-for="choice in checkbox">{{ choice }}</li>
+    </ul>
+  </div>
+
+  <!-- development version, include helpful console warnings -->
+  <script src="../vendor/vue.js"></script>
+  <!-- <script src="../assets/js/app.js"></script> -->
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+        message: '',
+        checkbox: []
+        
+      }
+    })
+  </script>
+</body>
+</html>

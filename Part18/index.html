@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vue Js Tutorial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <h1>Passing data with Propos in Components</h1>
+  
+  <div id="app">
+    <blog-post 
+      v-for="post in posts" :key="post.id"
+      :post="post">
+
+    </blog-post>
+  </div>
+
+  <!-- development version, include helpful console warnings -->
+  <script src="../vendor/vue.js"></script>
+  <!-- <script src="../assets/js/app.js"></script> -->
+
+  <script>
+    Vue.component('greeting', {
+      template: 
+        `
+          <div>
+            <b>Hello Vue! From Component..</b> <br>
+            <i>Hello Vue! From Component..</i> <br>
+            <u>Hello Vue! From Component..</u> 
+          </div>
+        `
+    })
+
+    Vue.component('button-counter', {
+      data: function() {
+        return {
+          count: 0
+        }
+      },
+      template: `
+        <button v-on:click="count++">
+          Click Me {{ count }} times
+        </button>
+      `
+    })
+
+    Vue.component('blog-post', {
+      props: ['post'],
+      template: `
+        <div>
+          <h3>{{ post.title }}</h3>
+          <div v-html="post.content"></div>  
+        </div>
+      `
+    })
+
+    var app = new Vue({
+      el: '#app',
+      data:{
+        posts: [
+          {id: 1, title: 'My journey with Vue', content: 'This is content of <b>Posts 1</b>'},
+          {id: 2, title: 'Blogging with Vue', content: 'This is content of <b>Posts 2</b>'},
+          {id: 3, title: 'Why Vue is so fun', content: 'This is content of <b>Posts 3</b>'}
+        ]  
+      }
+    })
+  </script>
+</body>
+</html>
